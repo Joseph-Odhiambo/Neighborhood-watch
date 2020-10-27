@@ -4,6 +4,8 @@ from .forms import SignupForm, BusinessForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import NeighbourHood, Profile, Business, Post
+from .forms import UpdateProfileForm, NeighbourHoodForm, PostForm
+
 
 # Create your views here.
 def index(request):
@@ -31,6 +33,18 @@ def hoods(request):
         'all_hoods': all_hoods,
     }
     return render(request, 'all_hoods.html', params)
+
+def create_hood(request):
+    if request.method == 'POST':
+        form = NeighbourHoodForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.admin = request.user.profile
+            hood.save()
+            return redirect('hood')
+    else:
+        form = NeighbourHoodForm()
+    return render(request, 'newhood.html', {'form': form})
 
 
 def single_hood(request, hood_id):

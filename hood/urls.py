@@ -9,4 +9,6 @@ urlpatterns = [
     path('new-hood/', views.create_hood, name='new-hood'),
     path('profile/<username>', views.profile, name='profile'),
     path('profile/<username>/edit/', views.edit_profile, name='edit-profile'),
+    path('single_hood/<hood_id>', views.single_hood, name='single-hood'),
+    path('<hood_id>/members', views.hood_members, name='members'),
 ]

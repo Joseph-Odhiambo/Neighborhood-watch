@@ -24,6 +24,14 @@ def signup(request):
         form = SignupForm()
     return render(request, 'registration/signup.html', {'form': form})
 
+def hoods(request):
+    all_hoods = NeighbourHood.objects.all()
+    all_hoods = all_hoods[::-1]
+    params = {
+        'all_hoods': all_hoods,
+    }
+    return render(request, 'all_hoods.html', params)
+
 
 def single_hood(request, hood_id):
     hood = NeighbourHood.objects.get(id=hood_id)

@@ -69,3 +69,9 @@ def single_hood(request, hood_id):
         'posts': posts
     }
     return render(request, 'single_hood.html', params)
+
+
+def hood_members(request, hood_id):
+    hood = NeighbourHood.objects.get(id=hood_id)
+    members = Profile.objects.filter(neighbourhood=hood)
+    return render(request, 'members.html', {'members': members})

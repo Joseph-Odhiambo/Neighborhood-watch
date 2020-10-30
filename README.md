@@ -39,7 +39,8 @@ cd Neighborhood-watch
 ```
 ##### Install and activate Virtual  
  ```bash 
-- python3 -m venv virtual - source virtual/bin/activate  
+- python3 -m venv virtual -
+- source virtual/bin/activate  
 ```  
 ##### Install Dependencies  
  ```bash 

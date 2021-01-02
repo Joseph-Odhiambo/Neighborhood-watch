@@ -13,7 +13,7 @@ join a hood, one can see businesses and posts in only that wood they belong to.
 ## Screenshots 
 ###### Home page
  
-<img src="">
+<img  src="">
 
  
 ## User Story  
